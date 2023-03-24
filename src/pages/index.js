@@ -1,8 +1,29 @@
 // NextJs
 import Head from 'next/head';
-import Link from 'next/link';
+
+// Components
+import CardComponent from '@/components/CardComponent';
 
 export default function Home() {
+  const VisionFeatures = [
+    {
+      title: 'Image Classification',
+      description: 'Classify images with labels from the ImageNet database. (MobileNet)',
+      link: '/image-classification',
+      imageUrl: 'https://www.tensorflow.org/static/site-assets/images/marketing/icon/tile_model_image.png'
+    }, {
+      title: 'Object Detection',
+      description: 'Locate and identify multiple objects in a single image. (Coco-SSD)',
+      link: '/object-detection',
+      imageUrl: 'https://www.tensorflow.org/static/site-assets/images/marketing/icon/tile_model_shapes.png'
+    }, {
+      title: 'Semantic Segmentation',
+      description: 'Run semantic image segmentation on an image to classify each pixel.',
+      link: '/semantic-segmentation',
+      imageUrl: 'https://www.tensorflow.org/static/site-assets/images/marketing/icon/tile_model_people.png'
+    }
+  ];
+
   return (
     <>
       <Head>
@@ -14,71 +35,25 @@ export default function Home() {
 
       <main className='min-h-screen bg-gray-100'>
         <header className='bg-white shadow'>
-          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold leading-tight text-gray-900">TensorflowJS Application</h1>
+          <div className="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8">
+            <h1 className="text-3xl font-bold leading-tight text-gray-900">Objectify</h1>
           </div>
         </header>
 
         <div className="py-10">
           <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              <Link href="/classification">
-                <div className="block bg-white overflow-hidden shadow rounded-lg">
-                  <div className="relative h-48">
-                    <img
-                      className="w-full h-full object-cover absolute inset-0"
-                      src="/images/classification.jpg"
-                      alt="Image Classification"
-                    />
-                  </div>
-                  <div className="px-4 py-5 sm:p-6">
-                    <div className="flex items-center justify-between">
-                      <p className="text-lg font-medium text-gray-900 truncate">Image Classification</p>
-                    </div>
-                    <div className="mt-4">
-                      <div className="flex items-center">
-                        <div className="text-lg font-medium text-gray-900">
-                          Classify images using pre-trained models.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
 
-              <Link href="/object-detection">
-                <div className="block bg-white overflow-hidden shadow rounded-lg">
-                  <div className="px-4 py-5 sm:p-6">
-                    <div className="flex items-center justify-between">
-                      <p className="text-lg font-medium text-gray-900 truncate">Object Detection</p>
-                    </div>
-                    <div className="mt-4">
-                      <div className="flex items-center">
-                        <div className="text-lg font-medium text-gray-900">
-                          Detect objects in images using pre-trained models.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+            <div className="px-4 py-6 sm:px-0 flex flex-col items-center mb-4">
+              <h1 className="text-3xl font-bold leading-tight text-gray-900/60">Vision</h1>
+              <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                Analyze features in images and videos. Unlock new real-time experiences in the browser.
+              </p>
+            </div>
 
-              <Link href="/sentiment-analysis">
-                <div className="block bg-white overflow-hidden shadow rounded-lg">
-                  <div className="px-4 py-5 sm:p-6">
-                    <div className="flex items-center justify-between">
-                      <p className="text-lg font-medium text-gray-900 truncate">Sentiment Analysis</p>
-                    </div>
-                    <div className="mt-4">
-                      <div className="flex items-center">
-                        <div className="text-lg font-medium text-gray-900">
-                          Analyze the sentiment of text using pre-trained models.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+            <div className="grid grid-cols-1 gap-5 lg:grid-cols-3 justify-items-center">
+              {VisionFeatures.map((card, _idx) => (
+                <CardComponent index={_idx} card={card} />
+              ))}
             </div>
           </div>
         </div>

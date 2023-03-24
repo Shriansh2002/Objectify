@@ -3,6 +3,8 @@ import Head from 'next/head';
 
 // Components
 import CardComponent from '@/components/CardComponent';
+import Header from '@/components/global/Header';
+import Footer from '@/components/global/Footer';
 
 export default function Home() {
   const VisionFeatures = [
@@ -33,12 +35,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='min-h-screen bg-gray-100'>
-        <header className='bg-white shadow'>
-          <div className="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold leading-tight text-gray-900">Objectify</h1>
-          </div>
-        </header>
+      <main className='min-h-screen bg-gray-100 flex flex-col justify-between'>
+        <Header />
 
         <div className="py-10">
           <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -57,6 +55,8 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <Footer />
 
       </main>
     </>

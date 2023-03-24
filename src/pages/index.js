@@ -1,5 +1,6 @@
 // NextJs
 import Head from 'next/head';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -11,8 +12,77 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        
+      <main className='min-h-screen bg-gray-100'>
+        <header className='bg-white shadow'>
+          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 className="text-3xl font-bold leading-tight text-gray-900">TensorflowJS Application</h1>
+          </div>
+        </header>
+
+        <div className="py-10">
+          <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <Link href="/classification">
+                <div className="block bg-white overflow-hidden shadow rounded-lg">
+                  <div className="relative h-48">
+                    <img
+                      className="w-full h-full object-cover absolute inset-0"
+                      src="/images/classification.jpg"
+                      alt="Image Classification"
+                    />
+                  </div>
+                  <div className="px-4 py-5 sm:p-6">
+                    <div className="flex items-center justify-between">
+                      <p className="text-lg font-medium text-gray-900 truncate">Image Classification</p>
+                    </div>
+                    <div className="mt-4">
+                      <div className="flex items-center">
+                        <div className="text-lg font-medium text-gray-900">
+                          Classify images using pre-trained models.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              <Link href="/object-detection">
+                <div className="block bg-white overflow-hidden shadow rounded-lg">
+                  <div className="px-4 py-5 sm:p-6">
+                    <div className="flex items-center justify-between">
+                      <p className="text-lg font-medium text-gray-900 truncate">Object Detection</p>
+                    </div>
+                    <div className="mt-4">
+                      <div className="flex items-center">
+                        <div className="text-lg font-medium text-gray-900">
+                          Detect objects in images using pre-trained models.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              <Link href="/sentiment-analysis">
+                <div className="block bg-white overflow-hidden shadow rounded-lg">
+                  <div className="px-4 py-5 sm:p-6">
+                    <div className="flex items-center justify-between">
+                      <p className="text-lg font-medium text-gray-900 truncate">Sentiment Analysis</p>
+                    </div>
+                    <div className="mt-4">
+                      <div className="flex items-center">
+                        <div className="text-lg font-medium text-gray-900">
+                          Analyze the sentiment of text using pre-trained models.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+
       </main>
     </>
   );

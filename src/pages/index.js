@@ -11,17 +11,17 @@ export default function Home() {
     {
       title: 'Image Classification',
       description: 'Classify images with labels from the ImageNet database. (MobileNet)',
-      link: '/Image-Classification',
+      link: 'test/ImageClassification',
       imageUrl: 'https://www.tensorflow.org/static/site-assets/images/marketing/icon/tile_model_image.png'
     }, {
       title: 'Object Detection',
       description: 'Locate and identify multiple objects in a single image. (Coco-SSD)',
-      link: '/Object-Detection',
+      link: 'test/ObjectDetection',
       imageUrl: 'https://www.tensorflow.org/static/site-assets/images/marketing/icon/tile_model_shapes.png'
     }, {
       title: 'Semantic Segmentation',
       description: 'Run semantic image segmentation on an image to classify each pixel.',
-      link: '/Semantic-Segmentation',
+      link: 'test/SemanticSegmentation',
       imageUrl: 'https://www.tensorflow.org/static/site-assets/images/marketing/icon/tile_model_people.png'
     }
   ];
@@ -50,7 +50,7 @@ export default function Home() {
 
             <div className="grid grid-cols-1 gap-5 lg:grid-cols-3 justify-items-center">
               {VisionFeatures.map((card, _idx) => (
-                <CardComponent index={_idx} card={card} />
+                <CardComponent key={_idx} card={card} />
               ))}
             </div>
           </div>

@@ -1,12 +1,17 @@
-import React from 'react';
+import Link from 'next/link';
+
+import { FaHome } from 'react-icons/fa';
 
 const Header = () => {
 	return (
-		<header className="bg-white shadow">
-			<div className="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8">
-				<h1 className="text-3xl font-bold leading-tight text-gray-900">
-					Objectify
-				</h1>
+		<header className="bg-gray-900 py-4">
+			<div className="container mx-auto flex justify-between items-center">
+				<Link href="/">
+					<div className="text-white text-xl flex items-center">
+						<FaHome className="mr-2" />
+						Objectify
+					</div>
+				</Link>
 			</div>
 		</header>
 	);

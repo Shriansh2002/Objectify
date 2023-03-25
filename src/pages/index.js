@@ -11,17 +11,17 @@ export default function Home() {
     {
       title: 'Image Classification',
       description: 'Classify images with labels from the ImageNet database. (MobileNet)',
-      link: '/image-classification',
+      link: '/Image-Classification',
       imageUrl: 'https://www.tensorflow.org/static/site-assets/images/marketing/icon/tile_model_image.png'
     }, {
       title: 'Object Detection',
       description: 'Locate and identify multiple objects in a single image. (Coco-SSD)',
-      link: '/object-detection',
+      link: '/Object-Detection',
       imageUrl: 'https://www.tensorflow.org/static/site-assets/images/marketing/icon/tile_model_shapes.png'
     }, {
       title: 'Semantic Segmentation',
       description: 'Run semantic image segmentation on an image to classify each pixel.',
-      link: '/semantic-segmentation',
+      link: '/Semantic-Segmentation',
       imageUrl: 'https://www.tensorflow.org/static/site-assets/images/marketing/icon/tile_model_people.png'
     }
   ];

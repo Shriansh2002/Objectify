@@ -2,6 +2,9 @@
 import Head from 'next/head';
 import React, { useRef, useState } from 'react';
 
+// Icons
+import { BsSearch } from 'react-icons/bs';
+
 // Components
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
@@ -14,12 +17,15 @@ import '@tensorflow/tfjs-backend-webgl';
 const ImageClassification = () => {
 	const [image, setImage] = useState(null);
 	const [predictions, setPredictions] = useState([]);
+	const [loading, setLoading] = useState(false);
 	const imageRef = useRef();
 
 	const classifyImage = async () => {
+		setLoading(true);
 		const model = await mobilenet.load();
 		const predictions = await model.classify(imageRef.current);
 		setPredictions(predictions);
+		setLoading(false);
 	};
 
 	const handleFileUpload = (event) => {
@@ -60,7 +66,7 @@ const ImageClassification = () => {
 					<label
 						htmlFor="file-upload"
 						className="px-4 py-2 text-lg font-bold rounded-lg cursor-pointer 
-							text-white bg-blue-500 hover:bg-blue-600"
+							text-white bg-orange-500 hover:bg-orange-600"
 					>
 						Upload
 					</label>
@@ -78,21 +84,29 @@ const ImageClassification = () => {
 								/>
 								<button
 									onClick={classifyImage}
-									className="px-4 py-2 text-lg font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-600 w-64 "
+									className={`px-4 py-2 flex items-center justify-center gap-1 text-lg font-medium text-white rounded-lg w-64 ${
+										loading
+											? 'bg-gray-500 cursor-not-allowed'
+											: 'bg-orange-500 hover:bg-orange-600'
+									}`}
+									disabled={loading}
 								>
-									Classify Image
+									{loading ? (
+										<div className="w-6 h-6 border-2 border-t-2 rounded-full animate-spin"></div>
+									) : (
+										<>
+											Classify <BsSearch />
+										</>
+									)}
 								</button>
 							</div>
 						)}
 					</div>
 					<div className="w-1/2">
 						{predictions.length > 0 && (
-							<div className="bg-gray-100 rounded-lg p-12">
-								<h2 className="text-lg font-bold mb-2">
-									Results:
-								</h2>
-								<table className="table-auto">
-									<thead>
+							<div className="rounded-lg p-12">
+								<table className="w-full text-lg text-left text-gray-500 dark:text-gray-400">
+									<thead className="text-xs text-gray-700 uppercase bg-gray-50">
 										<tr>
 											<th className="px-4 py-2">
 												Class Name
@@ -103,32 +117,25 @@ const ImageClassification = () => {
 										</tr>
 									</thead>
 									<tbody>
-										{predictions.map(
-											(prediction, index) => (
-												<tr
-													key={prediction.className}
-													className={
-														index % 2 === 0
-															? 'bg-gray-200'
-															: ''
-													}
-												>
-													<td className="border px-4 py-2">
-														{prediction.className}
-													</td>
-													<td className="border px-4 py-2">
-														{Math.round(
-															prediction.probability *
-																100
-														)}
-														%
-													</td>
-												</tr>
-											)
-										)}
+										{predictions.map((prediction, _idx) => (
+											<tr
+												key={_idx}
+												className="bg-white border-b"
+											>
+												<td className="border px-4 py-2">
+													{prediction.className}
+												</td>
+												<td className="border px-4 py-2">
+													{Math.round(
+														prediction.probability *
+															100
+													)}
+													%
+												</td>
+											</tr>
+										))}
 									</tbody>
 								</table>
-								<div className="my-4"></div>
 							</div>
 						)}
 					</div>

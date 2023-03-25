@@ -19,10 +19,10 @@ export default function Home() {
       link: 'test/ObjectDetection',
       imageUrl: 'https://www.tensorflow.org/static/site-assets/images/marketing/icon/tile_model_shapes.png'
     }, {
-      title: 'Semantic Segmentation',
-      description: 'Run semantic image segmentation on an image to classify each pixel.',
-      link: 'test/SemanticSegmentation',
-      imageUrl: 'https://www.tensorflow.org/static/site-assets/images/marketing/icon/tile_model_people.png'
+      title: 'Simple Face Detection',
+      description: 'Detect faces in an image. (BlazeFace)',
+      link: 'test/SimpleFaceDetection',
+      imageUrl: 'https://www.tensorflow.org/static/site-assets/images/marketing/icon/tile_model_blazeface.png'
     }
   ];
 

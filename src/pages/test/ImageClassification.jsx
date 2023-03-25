@@ -13,6 +13,7 @@ import Footer from '@/components/global/Footer';
 import * as tf from '@tensorflow/tfjs';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import '@tensorflow/tfjs-backend-webgl';
+import Script from 'next/script';
 
 const ImageClassification = () => {
 	const [image, setImage] = useState(null);
@@ -40,10 +41,10 @@ const ImageClassification = () => {
 		<>
 			<Head>
 				<title>Image Classification</title>
-				<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
-				<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
-				<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
-				<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
+				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core" />
+				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter" />
+				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl" />
+				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose" />
 			</Head>
 
 			<main className="flex flex-col min-h-screen justify-between">

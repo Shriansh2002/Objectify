@@ -9,6 +9,7 @@ import '@tensorflow/tfjs-backend-webgl';
 // Components
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
+import Script from 'next/script';
 
 const sampleImages = [
 	{
@@ -166,10 +167,10 @@ const ObjectDetectionPage = () => {
 			<Head>
 				<title>Object Detection</title>
 
-				<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
-				<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
-				<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
-				<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
+				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core" />
+				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter" />
+				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl" />
+				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose" />
 			</Head>
 
 			<main className="flex flex-col min-h-screen justify-between">

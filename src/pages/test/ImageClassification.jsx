@@ -1,5 +1,6 @@
 // Next & React
 import Head from 'next/head';
+import Script from 'next/script';
 import React, { useRef, useState } from 'react';
 
 // Icons
@@ -13,7 +14,9 @@ import Footer from '@/components/global/Footer';
 import * as tf from '@tensorflow/tfjs';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import '@tensorflow/tfjs-backend-webgl';
-import Script from 'next/script';
+import '@tensorflow/tfjs-backend-cpu';
+
+tf.setBackend('cpu');
 
 const ImageClassification = () => {
 	const [image, setImage] = useState(null);
@@ -40,7 +43,7 @@ const ImageClassification = () => {
 	return (
 		<>
 			<Head>
-				<title>Image Classification</title>
+				<title>Objectify - Image Classification</title>
 				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core" />
 				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter" />
 				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl" />

@@ -1,15 +1,19 @@
 // Next & React
 import { useState } from 'react';
 import Head from 'next/head';
+import Script from 'next/script';
 
 // Tensorflow
+import * as tf from '@tensorflow/tfjs';
 import * as cocoSsd from '@tensorflow-models/coco-ssd';
 import '@tensorflow/tfjs-backend-webgl';
+import '@tensorflow/tfjs-backend-cpu';
+
+tf.setBackend('cpu');
 
 // Components
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
-import Script from 'next/script';
 
 const sampleImages = [
 	{
@@ -165,7 +169,7 @@ const ObjectDetectionPage = () => {
 	return (
 		<>
 			<Head>
-				<title>Object Detection</title>
+				<title>Objectify - Object Detection</title>
 
 				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core" />
 				<Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter" />

@@ -9,13 +9,13 @@ import * as cocoSsd from '@tensorflow-models/coco-ssd';
 import '@tensorflow/tfjs-backend-webgl';
 import '@tensorflow/tfjs-backend-cpu';
 
-tf.setBackend('cpu');
-
 // Components
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
 import TableComponent from '@/components/TableComponent';
 import ResultDownloadComponent from '@/components/ResultDownloadComponent';
+
+tf.setBackend('cpu');
 
 const sampleImages = [
 	{

@@ -14,6 +14,8 @@ tf.setBackend('cpu');
 // Components
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
+import TableComponent from '@/components/TableComponent';
+import ResultDownloadComponent from '@/components/ResultDownloadComponent';
 
 const sampleImages = [
 	{
@@ -105,67 +107,6 @@ const ObjectDetectionPage = () => {
 		};
 	};
 
-	const downloadJSON = () => {
-		const jsonData = JSON.stringify(predictions);
-		const blob = new Blob([jsonData], { type: 'application/json' });
-		const url = URL.createObjectURL(blob);
-		const a = document.createElement('a');
-		a.download = 'predictions.json';
-		a.href = url;
-		a.click();
-		URL.revokeObjectURL(url);
-	};
-
-	const convertAndDownloadCSV = () => {
-		const csvData = predictions.map((prediction) => {
-			return {
-				className: prediction.class,
-				confidence: prediction.score,
-			};
-		});
-
-		const csvContent =
-			'data:text/csv;charset=utf-8,' +
-			csvData
-				.map((e) => {
-					return Object.values(e).join(',');
-				})
-				.join('\n');
-
-		const encodedUri = encodeURI(csvContent);
-		const link = document.createElement('a');
-		link.setAttribute('href', encodedUri);
-		link.setAttribute('download', 'predictions.csv');
-		document.body.appendChild(link); // Required for FF
-
-		link.click();
-	};
-
-	const convertAndDownloadXML = () => {
-		const xmlData = predictions.map((prediction) => {
-			return {
-				className: prediction.class,
-				confidence: prediction.score,
-			};
-		});
-
-		const xmlContent =
-			'data:text/xml;charset=utf-8,' +
-			xmlData
-				.map((e) => {
-					return Object.values(e).join(',');
-				})
-				.join('\n');
-
-		const encodedUri = encodeURI(xmlContent);
-		const link = document.createElement('a');
-		link.setAttribute('href', encodedUri);
-		link.setAttribute('download', 'predictions.xml');
-		document.body.appendChild(link); // Required for FF
-
-		link.click();
-	};
-
 	return (
 		<>
 			<Head>
@@ -201,83 +142,12 @@ const ObjectDetectionPage = () => {
 										</div>
 									) : (
 										<div>
-											<table className="min-w-full divide-y divide-gray-200 border-gray-200 border">
-												<thead className="bg-gray-50">
-													<tr>
-														<th
-															scope="col"
-															className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border border-gray-300"
-														>
-															ClassName
-														</th>
-														<th
-															scope="col"
-															className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border border-gray-300"
-														>
-															Confidence
-														</th>
-													</tr>
-												</thead>
-												<tbody className="bg-white divide-y divide-gray-200 ">
-													{predictions.length > 0 ? (
-														predictions.map(
-															(prediction, i) => (
-																<tr key={i}>
-																	<td className="px-6 py-4 whitespace-nowrap border border-gray-300">
-																		{
-																			prediction.class
-																		}
-																	</td>
-																	<td className="px-6 py-4 whitespace-nowrap border border-gray-300">
-																		{Math.round(
-																			parseFloat(
-																				prediction.score
-																			) *
-																				100
-																		)}
-																		%
-																	</td>
-																</tr>
-															)
-														)
-													) : (
-														<tr>
-															<td className="px-6 py-4 whitespace-nowrap border border-gray-300">
-																No predictions
-															</td>
-															<td className="px-6 py-4 whitespace-nowrap border border-gray-300">
-																No predictions
-															</td>
-														</tr>
-													)}
-												</tbody>
-											</table>
-											<div className="flex justify-center mt-4">
-												<button
-													className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mt-4"
-													onClick={downloadJSON}
-												>
-													Download JSON
-												</button>
-
-												<button
-													className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mt-4 ml-4"
-													onClick={
-														convertAndDownloadCSV
-													}
-												>
-													Download CSV
-												</button>
-
-												<button
-													className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mt-4 ml-4"
-													onClick={
-														convertAndDownloadXML
-													}
-												>
-													Download XML
-												</button>
-											</div>
+											<TableComponent
+												predictions={predictions}
+											/>
+											<ResultDownloadComponent
+												predictions={predictions}
+											/>
 										</div>
 									)}
 								</div>

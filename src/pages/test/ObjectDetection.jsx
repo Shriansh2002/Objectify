@@ -296,9 +296,7 @@ const ObjectDetectionPage = () => {
 							/>
 
 							<div className="flex items-center mt-8">
-								<div className="flex-1 border-t border-gray-400"></div>
 								<div className="mx-3 text-gray-400">OR</div>
-								<div className="flex-1 border-t border-gray-400"></div>
 							</div>
 
 							<div className="mt-8">
@@ -309,7 +307,7 @@ const ObjectDetectionPage = () => {
 									{sampleImages.map((image, _idx) => (
 										<button
 											key={_idx}
-											className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+											className="bg-white border-orange-400 border-2 px-4 py-0.5 text-orange-400 hover:bg-orange-400 hover:text-white rounded"
 											onClick={() =>
 												handleSampleImageChange(_idx)
 											}

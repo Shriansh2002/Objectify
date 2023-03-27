@@ -111,12 +111,12 @@ const ObjectDetectionPage = () => {
     <>
       <Head>
         <title>Objectify - Object Detection</title>
-
-        <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core" />
-        <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter" />
-        <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl" />
-        <Script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose" />
       </Head>
+
+      <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core" />
+      <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter" />
+      <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl" />
+      <Script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose" />
 
       <main className="flex flex-col min-h-screen justify-between">
         <Header />
@@ -173,10 +173,11 @@ const ObjectDetectionPage = () => {
                 <p className="text-gray-700 text-xl font-bold mb-6">
                   Select a sample image
                 </p>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                   {sampleImages.map((image, _idx) => (
                     <div
                       className="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer hover:shadow-2xl"
+                      key={_idx}
                       onClick={() =>
                         handleSampleImageChange(_idx)
                       }

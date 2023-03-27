@@ -1,5 +1,5 @@
 // Next & React
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 
@@ -170,20 +170,28 @@ const ObjectDetectionPage = () => {
 							</div>
 
 							<div className="mt-8">
-								<span className="text-gray-700 text-xl font-bold mb-4">
+								<p className="text-gray-700 text-xl font-bold mb-6">
 									Select a sample image
-								</span>
-								<div className="flex gap-4 mt-4">
+								</p>
+								<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
 									{sampleImages.map((image, _idx) => (
-										<button
-											key={_idx}
-											className="bg-white border-orange-400 border-2 px-4 py-0.5 text-orange-400 hover:bg-orange-400 hover:text-white rounded"
+										<div
+											className="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer hover:shadow-2xl"
 											onClick={() =>
 												handleSampleImageChange(_idx)
 											}
 										>
-											{image.name}
-										</button>
+											<img
+												src={image.url}
+												alt={image.name}
+												className="w-full cursor-pointer h-[200px]"
+											/>
+											<div className="px-6 py-4">
+												<div className="font-bold text-xl mb-2">
+													{image.name}
+												</div>
+											</div>
+										</div>
 									))}
 								</div>
 							</div>

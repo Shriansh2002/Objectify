@@ -11,12 +11,15 @@ function Header() {
 	return (
 		<header className="bg-white shadow-md px-4 py-4 md:px-6">
 			<div className="container mx-auto flex justify-between items-center">
-				<Link href="/">
-					<div className="text-xl flex items-center font-bold text-gray-800 cursor-pointer">
-						<FaHome className="mr-2" />
-						Objectify
-					</div>
-				</Link>
+				<div
+					className="text-xl flex items-center font-bold text-gray-800 cursor-pointer"
+					onClick={() => {
+						window.location.href = '/';
+					}}
+				>
+					<FaHome className="mr-2" />
+					Objectify
+				</div>
 				<div className="hidden md:block">
 					<nav>
 						<ul className="flex items-center">

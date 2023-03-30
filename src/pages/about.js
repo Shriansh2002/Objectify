@@ -1,8 +1,12 @@
-import Footer from '@/components/global/Footer';
-import Header from '@/components/global/Header';
+import { Fragment } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Fragment } from 'react';
+
+// Components
+import Footer from '@/components/global/Footer';
+import Header from '@/components/global/Header';
+
+// Icons
 import { FaGithub } from 'react-icons/fa';
 
 const AboutPage = () => {

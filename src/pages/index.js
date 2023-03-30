@@ -19,7 +19,7 @@ tf.setBackend('cpu');
 
 const sampleImages = [
   {
-    url: 'https://images.unsplash.com/photo-1679198315253-88c0b0b3f4e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80',
+    url: 'https://protectmycar.com/wp-content/uploads/2020/12/shutterstock_437824393-1024x683.jpg',
     name: 'Sample 1',
   },
   {
@@ -176,7 +176,7 @@ const ObjectDetectionPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                   {sampleImages.map((image, _idx) => (
                     <div
-                      className="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer hover:shadow-2xl"
+                      className="max-w-sm rounded-lg overflow-hidden shadow-lg cursor-pointer hover:shadow-2xl"
                       key={_idx}
                       onClick={() =>
                         handleSampleImageChange(_idx)
@@ -185,12 +185,10 @@ const ObjectDetectionPage = () => {
                       <img
                         src={image.url}
                         alt={image.name}
-                        className="w-full cursor-pointer h-[200px]"
+                        className="w-full cursor-pointer h-52"
                       />
-                      <div className="px-6 py-4">
-                        <div className="font-bold text-xl mb-2">
-                          {image.name}
-                        </div>
+                      <div className="px-6 pt-2 pb-1">
+                        <h2 className="font-bold text-xl mb-2">{image.name}</h2>
                       </div>
                     </div>
                   ))}

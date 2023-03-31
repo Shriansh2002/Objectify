@@ -26,7 +26,7 @@ const ContactPage = () => {
                                 Contact Us
                             </h2>
                             <p className="mt-6 text-xl text-gray-500 dark:text-gray-300">
-                                If you have any questions or feedback, please don't hesitate to get in touch with us. You can contact either of us using the details below:
+                                If you have any questions or feedback, please don{""}t hesitate to get in touch with us. You can contact either of us using the details below:
                             </p>
 
 

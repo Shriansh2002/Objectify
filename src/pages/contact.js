@@ -34,7 +34,7 @@ const ContactPage = () => {
                                 <input
                                     type="email"
                                     id="email"
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
                                     placeholder="Enter Your Name"
                                     required
                                 />
@@ -49,7 +49,7 @@ const ContactPage = () => {
                                 <input
                                     type="text"
                                     id="name"
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
                                     placeholder="Enter Your Email"
                                     required
                                 />
@@ -65,14 +65,14 @@ const ContactPage = () => {
                                 <textarea
                                     type="text"
                                     id="large-input"
-                                    className="block w-full text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 p-2.5"
+                                    className="block w-full text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-indigo-500 focus:border-indigo-500 p-2.5"
                                     placeholder="Enter your message"
                                 />
                             </div>
 
                             <button
                                 type="submit"
-                                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full"
+                                className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded w-full"
                             >
                                 Send
                             </button>

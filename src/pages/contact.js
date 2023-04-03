@@ -27,7 +27,7 @@ const ContactPage = () => {
                         <form className='bg-white mx-auto max-w-2xl shadow-md rounded-lg  px-8 py-12'>
                             <div className="mb-6">
                                 <label
-                                    for="email"
+                                    htmlFor="email"
                                     className="block mb-2 text-sm font-medium text-gray-900">
                                     Your Email
                                 </label>
@@ -42,7 +42,7 @@ const ContactPage = () => {
 
                             <div className="mb-6">
                                 <label
-                                    for="name"
+                                    htmlFor="name"
                                     className="block mb-2 text-sm font-medium text-gray-900">
                                     Your Name
                                 </label>
@@ -57,7 +57,7 @@ const ContactPage = () => {
 
                             <div className="mb-6">
                                 <label
-                                    for="large-input"
+                                    htmlFor="large-input"
                                     className="block mb-2 text-sm font-medium text-gray-900"
                                 >
                                     Your Message

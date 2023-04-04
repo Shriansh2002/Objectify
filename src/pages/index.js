@@ -14,6 +14,7 @@ import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
 import TableComponent from '@/components/TableComponent';
 import ResultDownloadComponent from '@/components/ResultDownloadComponent';
+import SampleImagesCard from '@/components/SampleImagesCard';
 
 tf.setBackend('cpu');
 
@@ -175,22 +176,12 @@ const ObjectDetectionPage = () => {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                   {sampleImages.map((image, _idx) => (
-                    <div
-                      className="max-w-sm rounded-lg overflow-hidden shadow-lg cursor-pointer hover:shadow-2xl"
+                    <SampleImagesCard
+                      image={image}
+                      _idx={_idx}
+                      handleSampleImageChange={handleSampleImageChange}
                       key={_idx}
-                      onClick={() =>
-                        handleSampleImageChange(_idx)
-                      }
-                    >
-                      <img
-                        src={image.url}
-                        alt={image.name}
-                        className="w-full cursor-pointer h-52"
-                      />
-                      <div className="px-6 pt-2 pb-1">
-                        <h2 className="font-bold text-xl mb-2">{image.name}</h2>
-                      </div>
-                    </div>
+                    />
                   ))}
                 </div>
               </div>

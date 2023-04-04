@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+// React & Next
+import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+// Icons
 import { FaBars, FaHome, FaTimes } from 'react-icons/fa';
 
 function Header() {
 	const [isOpen, setIsOpen] = useState(false);
+	const router = useRouter();
 
 	const toggleMenu = () => {
 		setIsOpen(!isOpen);
@@ -11,15 +16,13 @@ function Header() {
 	return (
 		<header className="bg-white shadow-md px-4 py-4 md:px-6">
 			<div className="container mx-auto flex justify-between items-center">
-				<div
+				<Link
+					href="/"
 					className="text-xl flex items-center font-bold text-gray-800 cursor-pointer"
-					onClick={() => {
-						window.location.href = '/';
-					}}
 				>
 					<FaHome className="mr-2" />
 					Objectify
-				</div>
+				</Link>
 				<div className="hidden md:block">
 					<nav>
 						<ul className="flex items-center">

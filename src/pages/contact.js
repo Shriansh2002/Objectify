@@ -1,3 +1,4 @@
+// Next & React
 import Head from 'next/head';
 import { Fragment, useEffect } from 'react';
 

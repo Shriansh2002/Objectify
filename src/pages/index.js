@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
 
+
 // Components
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
@@ -11,6 +12,15 @@ import SampleImagesCard from '@/components/SampleImagesCard';
 // Data
 import sampleImages from '@/data/sampleImages';
 
+// Fonts
+import {
+  Roboto
+} from 'next/font/google';
+
+const roboto = Roboto({
+  weight: ['400'],
+  subsets: ['latin'],
+});
 
 const ObjectDetectionPage = () => {
   const router = useRouter();
@@ -41,7 +51,7 @@ const ObjectDetectionPage = () => {
       <main className="flex flex-col min-h-screen justify-between">
         <Header />
 
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className={`max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 ${roboto.className} `}>
           <div className="flex flex-col items-center justify-center">
             <span className="text-gray-700 mb-4 text-xl font-bold">
               Upload an image
@@ -76,7 +86,7 @@ const ObjectDetectionPage = () => {
         </div>
 
         <Footer />
-      </main>
+      </main >
     </>
   );
 };

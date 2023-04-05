@@ -10,6 +10,16 @@ import Header from '@/components/global/Header';
 // Icons
 import { FaGithub } from 'react-icons/fa';
 
+// Fonts
+import {
+    Roboto
+} from 'next/font/google';
+
+const roboto = Roboto({
+    weight: ['400'],
+    subsets: ['latin'],
+});
+
 const AboutPage = () => {
     return (
         <Fragment>
@@ -19,7 +29,7 @@ const AboutPage = () => {
 
             <main className="flex flex-col min-h-screen justify-between">
                 <Header />
-                <div className="bg-white">
+                <div className={`bg-white ${roboto.className} `}>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="max-w-3xl mx-auto py-16 sm:py-24">
                             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">

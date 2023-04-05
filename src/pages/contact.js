@@ -6,6 +6,15 @@ import { Fragment, useEffect } from 'react';
 import Footer from '@/components/global/Footer';
 import Header from '@/components/global/Header';
 
+// Fonts
+import {
+    Roboto
+} from 'next/font/google';
+
+const roboto = Roboto({
+    weight: ['400'],
+    subsets: ['latin'],
+});
 
 const ContactPage = () => {
     useEffect(() => {
@@ -35,7 +44,7 @@ const ContactPage = () => {
                 <Header />
 
 
-                <section className="flex-grow bg-gray-100 py-12">
+                <section className={`flex-grow bg-gray-100 py-12 ${roboto.className}`}>
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                         <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
 

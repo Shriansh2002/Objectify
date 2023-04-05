@@ -39,8 +39,8 @@ const ContactPage = () => {
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                         <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
 
-                        <div className='p-16 bg-white rounded-lg shadow-lg'>
-                            <div id="hubspotForm"></div>
+                        <div className='p-12 bg-white rounded-lg shadow-lg'>
+                            <div id="hubspotForm" />
                         </div>
 
 

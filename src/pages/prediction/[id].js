@@ -98,20 +98,25 @@ const Prediction = () => {
                                 PREDICTION
                             </h2>
 
-                            {isLoading ? (
-                                <div className="flex justify-center">
-                                    <p>Loading...</p>
-                                </div>
-                            ) : (
-                                <div>
-                                    <TableComponent
-                                        predictions={predictions}
-                                    />
-                                    <ResultDownloadComponent
-                                        predictions={predictions}
-                                    />
-                                </div>
-                            )}
+
+                            <div className="w-96">  {/* TODO: */}
+
+                                {isLoading ? (
+                                    <div className="flex justify-center">
+                                        <p>Loading...</p>
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <TableComponent
+                                            predictions={predictions}
+                                        />
+                                        <ResultDownloadComponent
+                                            predictions={predictions}
+                                        />
+                                    </div>
+                                )}
+
+                            </div>
                         </div>
                     </div>
                 </div>

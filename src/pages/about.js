@@ -34,7 +34,7 @@ const AboutPage = () => {
                         <div className="max-w-3xl mx-auto py-16 sm:py-24">
                             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
                                 About {""}
-                                <span className='text-indigo-600'>
+                                <span className='text-orange-600'>
                                     Objectify
                                 </span>
                             </h2>
@@ -51,7 +51,7 @@ const AboutPage = () => {
                                 <Link
                                     href="https://github.com/shriansh2002/objectify"
 
-                                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700"
+                                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orange-600 hover:bg-orange-700"
                                     rel="noopener noreferrer" target="_blank"
                                 >
                                     <FaGithub className="mr-2" />

@@ -69,23 +69,6 @@ const ObjectDetectionPage = () => {
 
 
             {/* TODO:  Add image URL input */}
-            {/* <div className="flex w-full">
-              <input
-                type="text"
-                placeholder="Paste image URL"
-                className="w-full h-12 py-3 px-4 rounded-lg bg-gray-100 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border border-gray-300 focus:border-gray-400"
-              />
-
-              <button
-                className='h-12 w-fit rounded-lg bg-gray-100 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border border-gray-300 focus:border-gray-400'
-              >
-                Detect Objects
-              </button>
-            </div>
-
-            <div className="flex items-center mt-8">
-              <div className="mx-3 text-gray-400">OR</div>
-            </div> */}
 
             <div className="mt-8">
               <p className="text-gray-700 text-xl font-bold mb-6">

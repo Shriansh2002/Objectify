@@ -90,7 +90,7 @@ const Prediction = () => {
                         <img
                             src={imageUrl}
                             alt="Selected file"
-                            className="rounded-xl shadow-lg w-[350px] h-[300px] align-middle border-none "
+                            className="rounded shadow-lg w-[350px] h-[300px] align-middle border-none "
                             crossOrigin="anonymous"
                         />
                         <div>
@@ -99,7 +99,7 @@ const Prediction = () => {
                             </h2>
 
 
-                            <div className="w-96">  {/* TODO: */}
+                            <div>  {/* TODO: */}
 
                                 {isLoading ? (
                                     <div className="flex justify-center">
@@ -110,9 +110,11 @@ const Prediction = () => {
                                         <TableComponent
                                             predictions={predictions}
                                         />
-                                        <ResultDownloadComponent
-                                            predictions={predictions}
-                                        />
+                                        {predictions.length > 0 &&
+                                            <ResultDownloadComponent
+                                                predictions={predictions}
+                                            />
+                                        }
                                     </div>
                                 )}
 

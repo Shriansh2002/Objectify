@@ -51,7 +51,7 @@ const ObjectDetectionPage = () => {
       <main className="flex flex-col min-h-screen justify-between">
         <Header />
 
-        <div className={`max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 ${roboto.className} `}>
+        <div className={`max-w-7xl md:mx-auto py-12 px-4 sm:px-6 lg:px-8 ${roboto.className} `}>
           <div className="flex flex-col items-center justify-center">
             <span className="text-gray-700 mb-4 text-xl font-bold">
               Upload an image
@@ -70,11 +70,11 @@ const ObjectDetectionPage = () => {
 
             {/* TODO:  Add image URL input */}
 
-            <div className="mt-8">
-              <p className="text-gray-700 text-xl font-bold mb-6">
+            <div className="mt-8 w-full flex flex-col items-center">
+              <p className="text-gray-700 text-center text-xl font-bold mb-6">
                 Select a sample image
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {sampleImages.map((image, _idx) => (
                   <SampleImagesCard
                     image={image}

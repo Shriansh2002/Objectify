@@ -1,14 +1,14 @@
 // React & Next
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 // Icons
 import { FaBars, FaHome, FaTimes } from 'react-icons/fa';
 
+const HeaderMenuList = ['about', 'contact'];
+
 function Header() {
 	const [isOpen, setIsOpen] = useState(false);
-	const router = useRouter();
 
 	const toggleMenu = () => {
 		setIsOpen(!isOpen);
@@ -26,20 +26,16 @@ function Header() {
 				<div className="hidden md:block">
 					<nav>
 						<ul className="flex items-center">
-							<li className="ml-6">
-								<Link href="/about">
-									<div className="text-gray-600 hover:text-gray-800">
-										About
-									</div>
-								</Link>
-							</li>
-							<li className="ml-6">
-								<Link href="/contact">
-									<div className="text-gray-600 hover:text-gray-800">
-										Contact
-									</div>
-								</Link>
-							</li>
+							{HeaderMenuList.map((menu, _idx) => (
+								<li className="ml-6" key={_idx}>
+									<Link href={`${menu}`}>
+										<div className="text-gray-600 hover:text-gray-800">
+											{menu.charAt(0).toUpperCase() +
+												menu.slice(1)}
+										</div>
+									</Link>
+								</li>
+							))}
 						</ul>
 					</nav>
 				</div>
@@ -60,20 +56,16 @@ function Header() {
 				<div className="md:hidden">
 					<nav>
 						<ul className="flex flex-col items-center">
-							<li className="mt-4">
-								<Link href="/about">
-									<div className="text-gray-600 hover:text-gray-800">
-										About
-									</div>
-								</Link>
-							</li>
-							<li className="mt-4">
-								<Link href="/contact">
-									<div className="text-gray-600 hover:text-gray-800">
-										Contact
-									</div>
-								</Link>
-							</li>
+							{HeaderMenuList.map((menu, _idx) => (
+								<li className="mt-4" key={_idx}>
+									<Link href={`${menu}`}>
+										<div className="text-gray-600 hover:text-gray-800">
+											{menu.charAt(0).toUpperCase() +
+												menu.slice(1)}
+										</div>
+									</Link>
+								</li>
+							))}
 						</ul>
 					</nav>
 				</div>

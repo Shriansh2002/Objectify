@@ -14,7 +14,7 @@ function Header() {
 		setIsOpen(!isOpen);
 	};
 	return (
-		<header className="bg-white shadow-md px-4 py-4 md:px-6">
+		<header className="bg-white border-b px-4 py-4 md:px-6">
 			<div className="container mx-auto flex justify-between items-center">
 				<Link
 					href="/"

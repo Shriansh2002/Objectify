@@ -16,6 +16,9 @@ import sampleImages from '@/data/sampleImages';
 import {
   Roboto
 } from 'next/font/google';
+import { Fragment, useEffect, useState } from 'react';
+import Loader from '@/components/global/Loader';
+import { div } from '@tensorflow/tfjs';
 
 const roboto = Roboto({
   weight: ['400'],
@@ -24,6 +27,15 @@ const roboto = Roboto({
 
 const ObjectDetectionPage = () => {
   const router = useRouter();
+  const [splashScreenLoading, setSplashScreenLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSplashScreenLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleImageChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -48,48 +60,57 @@ const ObjectDetectionPage = () => {
       <Script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl" />
       <Script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose" />
 
+
       <main className="flex flex-col min-h-screen justify-between">
-        <Header />
+        {splashScreenLoading ? (
+          <div className='flex h-screen justify-center items-center'>
+            <Loader />
+          </div>
+        ) : (
+          <Fragment>
+            <Header />
 
-        <div className={`max-w-7xl md:mx-auto py-12 px-4 sm:px-6 lg:px-8 ${roboto.className} `}>
-          <div className="flex flex-col items-center justify-center">
-            <span className="text-gray-700 mb-4 text-xl font-bold">
-              Upload an image
-            </span>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="w-full py-3 px-4 rounded-lg bg-gray-100 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border border-gray-300 focus:border-gray-400"
-            />
+            <div className={`max-w-7xl md:mx-auto py-12 px-4 sm:px-6 lg:px-8 ${roboto.className} `}>
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-gray-700 mb-4 text-xl font-bold">
+                  Upload an image
+                </span>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="w-full py-3 px-4 rounded-lg bg-gray-100 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border border-gray-300 focus:border-gray-400"
+                />
 
-            <div className="flex items-center mt-8">
-              <div className="mx-3 text-gray-400">OR</div>
-            </div>
+                <div className="flex items-center mt-8">
+                  <div className="mx-3 text-gray-400">OR</div>
+                </div>
 
 
-            {/* TODO:  Add image URL input */}
+                {/* TODO:  Add image URL input */}
 
-            <div className="mt-8 w-full flex flex-col items-center">
-              <p className="text-gray-700 text-center text-xl font-bold mb-6">
-                Select a sample image
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {sampleImages.map((image, _idx) => (
-                  <SampleImagesCard
-                    image={image}
-                    _idx={_idx}
-                    handleSampleImageChange={handleSampleImageChange}
-                    key={_idx}
-                  />
-                ))}
+                <div className="mt-8 w-full flex flex-col items-center">
+                  <p className="text-gray-700 text-center text-xl font-bold mb-6">
+                    Select a sample image
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {sampleImages.map((image, _idx) => (
+                      <SampleImagesCard
+                        image={image}
+                        _idx={_idx}
+                        handleSampleImageChange={handleSampleImageChange}
+                        key={_idx}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <Footer />
-      </main >
+            <Footer />
+          </Fragment >
+        )}
+      </main>
     </>
   );
 };

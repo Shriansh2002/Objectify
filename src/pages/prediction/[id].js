@@ -86,14 +86,16 @@ const Prediction = () => {
             <main className="flex flex-col min-h-screen justify-between">
                 <Header />
                 <div>
-                    <div className="flex gap-8 items-center justify-center">
-                        <img
-                            src={imageUrl}
-                            alt="Selected file"
-                            className="rounded shadow-lg w-[350px] h-[300px] align-middle border-none "
-                            crossOrigin="anonymous"
-                        />
-                        <div>
+                    <div className="flex flex-col md:flex-row gap-8 py-12 mx-12 items-center justify-center">
+                        <div className='flex items-center justify-center w-1/2'>
+                            <img
+                                src={imageUrl}
+                                alt="Selected file"
+                                className="rounded shadow-lg w-[350px] h-[300px] align-middle border-none "
+                                crossOrigin="anonymous"
+                            />
+                        </div>
+                        <div className='w-1/2'>
                             <h2 className="text-2xl font-bold mb-4 text-center">
                                 PREDICTION
                             </h2>
@@ -103,7 +105,11 @@ const Prediction = () => {
 
                                 {isLoading ? (
                                     <div className="flex justify-center">
-                                        <p>Loading...</p>
+                                        <div className="three-body">
+                                            <div className="three-body__dot"></div>
+                                            <div className="three-body__dot"></div>
+                                            <div className="three-body__dot"></div>
+                                        </div>
                                     </div>
                                 ) : (
                                     <div>
